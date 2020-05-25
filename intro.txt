@@ -8,3 +8,32 @@
 > npm i nodemon -D
 
 > npm i knex pg express (Baixando os três de uma vez)
+
+- Crie o servidor
+
+> npx knex init (O knex não esta instalado globalmente na máquina, por isso o npx o inicia)
+  - Após isso o knexfile.js será criado
+
+- No arquivo knexfile você troca filename por database (no objeto connection) e insere os dados de acesso
+
+- Crie a pasta database e o arquivo index.js para criar a conexão com o database
+
+- Criando as migrations:
+  > npx knex migrate:make create_table_users
+  - Será criada uma pasta migrations na raiz do projeto com a migration realizada
+  - Para configurar a pasta migrations para outro ditetorio, basta adicionar p objeto migrations
+    no knexfile
+  - Após essa configuração, basta apagar a pasta e rodar novamente o comando de criação da migration recente
+
+- Na migration poderemos criar a tabela, e para executar:
+  > npx knex migrate:latest
+  - Após isso pode-se verificar que a tabela foi criada
+
+- Agora iremos configurar o seeds adicionando este objeto no knexfile
+  - Uma vez configurado podemos criar utilizando:
+    > npx knex seed:make 001_users
+    - Será criada a seed, nela você configura com a tabela e os dados desejados
+    - Para executar a seed: > npx knex seed:run
+
+- Agora que já configuramos o knex e a seed, poderemos criar a API com a ajuda do
+  Insomnia
