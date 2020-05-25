@@ -1,5 +1,6 @@
+const { onUpdateTrigger } = require("../../../knexfile");
 
-exports.up = function(knex) {
+exports.up = async function(knex) {
   return knex.schema.createTable("projects", function(table) {
     table.increments("id")
     table.text("title")
@@ -12,7 +13,7 @@ exports.up = function(knex) {
     .onDelete("CASCADE") // Apagar user apaga todos os seus projects
 
     table.timestamps(true, true)
-  });
+  }).then(() => knex.raw(onUpdateTrigger("projects")));
 };
 
-exports.down = knex => knex.schema.dropTable("projects"); //? maneira moderna no js 
+exports.down = async knex => knex.schema.dropTable("projects"); //? maneira moderna no js 
