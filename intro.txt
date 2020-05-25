@@ -1,0 +1,10 @@
+### Estudo de teste sobre Knex.js
+
+> npm init -y
+
+- No package.json realizar as alterações no main para "src/server.js"
+- No script criar "start": "nodemon src/server.js"
+
+> npm i nodemon -D
+
+> npm i knex pg express (Baixando os três de uma vez)
