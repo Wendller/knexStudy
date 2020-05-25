@@ -37,3 +37,5 @@
 
 - Agora que já configuramos o knex e a seed, poderemos criar a API com a ajuda do
   Insomnia
+
+- Primeir
